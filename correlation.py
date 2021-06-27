@@ -3,8 +3,8 @@ import math as m
 import json
 
 def load_journal(fname):
-
-	f = json.load(fname)
+	file = open(fname)
+	f = json.load(file)
 	return f
 
 def compute_phi(fname, event):
@@ -45,7 +45,9 @@ def compute_phi(fname, event):
 	return corr
 
 def compute_correlations(fname):
-	f = json.load(fname)
+
+	file = open(fname)
+	f = json.load(file)
 	d = dict()
 	for i in f:
 		for event in i.values():
