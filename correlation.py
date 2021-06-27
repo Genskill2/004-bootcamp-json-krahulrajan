@@ -5,12 +5,12 @@ import json
 
 def load_journal(fname):
 
-	f = json.load(fname)
+	f = json.load(journal.json)
 	return f
 
 def compute_phi(fname, event):
 
-	data = load_journal(fname)
+	data = load_journal(journal.json)
 
 	#write down the correlation of event and squirrel
 	n11 = 0  #when event is present and squirrel is true
@@ -46,7 +46,7 @@ def compute_phi(fname, event):
 	return corr
 
 def compute_correlations(fname):
-	f = json.load(fname)
+	f = json.load(journal.json)
 	d = dict()
 	for i in f:
 		for event in i.values():
@@ -57,7 +57,7 @@ def compute_correlations(fname):
 
 def diagnosis(fname):
 	desired_key = ""
-	d = compute_correlations(fname)
+	d = compute_correlations(journal.json)
 	check_val = 1
 	for key,value in d.items():
 		if value < check_val:
